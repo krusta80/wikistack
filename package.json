@@ -1,0 +1,21 @@
+{
+  "name": "twitter-js",
+  "version": "1.0.0",
+  "description": "John and Jason's Twitter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "lodash": "^4.1.0",
+    "morgan": "^1.6.1",
+    "socket.io": "^1.4.5",
+    "swig": "^1.4.2"
+  }
+}
