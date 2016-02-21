@@ -4,10 +4,9 @@ var swig = require('swig');
 var app = express(); // creates an instance of an express application
 var bodyParser = require('body-parser');
 var routes = require('./routes/');	
-var socketio = require('socket.io');
+//var socketio = require('socket.io');
 
 var port = 3000;
-var indexView = "";
 
 // create application/json parser
 var jsonParser = bodyParser.json()
@@ -21,19 +20,13 @@ app.set('views', __dirname + '/views');
 swig.setDefaults({ cache: false });
 
 app.use(express.static('public'));
-
 app.use(morgan('combined'));
+app.use(urlencodedParser);
+app.use(jsonParser);
+
 
 var server = app.listen(port, function() {
-	console.log("Twitter is running on port "+port);
+	console.log("Wikistack is running on port "+port);
 }); 
 
-var io = socketio.listen(server);
-
-var ourFunction = function(req,res,next) {
-    console.log(a);
-    next();
-};
-app.use('/', ourFunction, urlencodedParser, routes(io));		//	route all requests to our routing module
-var a = 1;
-
+app.use('/', routes());		//	route all requests to our routing module
